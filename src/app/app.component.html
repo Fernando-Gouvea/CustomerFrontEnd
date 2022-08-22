@@ -1,7 +1,17 @@
 <h1>Customers</h1>
-<button (click)="get()">All Customes</button>
+<button (click)="get1()">All Customes</button>
+<hr>
+<div *ngFor="let i of customers">
+
+    <textarea>Nome:{{ i.name }} Idade:{{ i.old }}</textarea>
+
+</div>
+
+
+
 <hr>
 <button (click)="post()">POST Custome</button>
+
 <hr>
 <button (click)="update()">UPDATE Customes</button>
 <hr>

@@ -11,6 +11,10 @@ export class CustomerService {
 
  constructor(private httpClient: HttpClient) { }
 
+ getCustomers1(){
+  return this.httpClient.get<ICustomer>(`${API_PATH}v1/customers/0/25`);
+}
+
 getCustomers(){
   return this.httpClient.get<ICustomer>(`${API_PATH}v1/customers/0/25`).toPromise();
 }

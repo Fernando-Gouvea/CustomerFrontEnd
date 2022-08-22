@@ -10,12 +10,23 @@ import { ICustomer } from './ICustomer';
 export class AppComponent {
   title = 'Customer';
   
+  
+  
   constructor(private customerservice: CustomerService)
   {} 
   
+  
+  customers : any;
+
+  get1(){
+    this.customerservice.getCustomers1().subscribe(
+      (data : ICustomer) => {
+      this.customers = data;})}
+
   get(){
    this.customerservice.getCustomers()
    .then(customers => console.log(customers))
+   .then(customer => this.customers = customer)
    .catch(error => console.error(error))
     .then((customer: any) => console.log(customer))
     .catch(error => console.error(error));
@@ -36,6 +47,7 @@ export class AppComponent {
     .catch(error => console.error(error));
   }
 
+  
   update(){
     const customer: ICustomer = {
       id: "1d2c56f2-01e1-446e-86ba-210cf6c15ac9",
